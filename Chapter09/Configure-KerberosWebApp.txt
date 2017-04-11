@@ -1,0 +1,4 @@
+New-Item C:\inetpub\kerbroot -type Directory
+Import-Module Webadministration
+cd IIS:
+New-Item 'IIS:\Sites\Kerberos Web Site' -bindings @{protocol="http";bindingInformation=":80:kerb.identityplus.ch"} -physicalPath 'c:\inetpub\kerbroot'

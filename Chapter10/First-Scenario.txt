@@ -1,0 +1,15 @@
+Get-ADGroup -Identity "Licensing Office 365 E3 Plan"
+
+$rp = Get-AdfsRelyingPartyTrust -Name "Microsoft Office 365 Identity Platform"
+
+$groupMfaClaimTriggerRule = 'c:[Type ==
+"http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value
+=~ "^(?i) S-1-5-21-3303717086-1394675760-1919540899-2604$"] => issue(Type =
+"http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmeth
+od", Value = "http://schemas.microsoft.com/claims/multipleauthn");'
+
+Set-AdfsRelyingPartyTrust -TargetRelyingParty $rp -AdditionalAuthenticationRules $groupMfaClaimTriggerRule
+
+Connect-MsolService
+
+Set-MsolDomainFederationSettings -DomainName identityplus.ch -SupportsMFA $true

@@ -1,0 +1,1 @@
+Install-WindowsFeature ADFS-Federation -IncludeManagementTools Install-AdfsFarm -CertificateThumbprint <thumbprint of the cert> -FederationServiceName login.identityplus.ch -GroupServiceAccountIdentifier identityplus\svcfed$ -FederationServiceDisplayName "IDPlus Login"

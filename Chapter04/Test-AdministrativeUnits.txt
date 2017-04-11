@@ -1,0 +1,2 @@
+Set-MsolUser -UserPrincipalName ellen.adams@domain.onmicrosoft.com -Department HR
+Get-MsolUser -UserPrincipalName ellen.adams@domain.onmicrosoft.com | fl

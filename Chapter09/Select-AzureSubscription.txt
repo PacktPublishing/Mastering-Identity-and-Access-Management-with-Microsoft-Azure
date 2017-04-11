@@ -1,0 +1,5 @@
+Install-Module AzureRM
+Install-Module Azure
+Add-AzureAccount
+Get-AzureSubscription
+Select-AzureSubscription -SubscriptionName "Your MSDN subscription" -Default

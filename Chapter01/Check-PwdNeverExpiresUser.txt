@@ -1,0 +1,1 @@
+Get-MSOLUser -UserPrincipalName user@example.com | Select PasswordNeverExpires

@@ -1,0 +1,16 @@
+New-MsolAdministrativeUnit- DisplayName 'HR' -Description 'HumanResourcesUsers'
+
+$au = Get-MsolAdministrativeUnit -searchstring 'HR'
+$user1 = Get-MsolUser -UserPrincipalName 'don.hall@domain.onmicrosoft.com'
+$user2 = Get-MsolUser -UserPrincipalName 'ellen.adams@domain.onmicrosoft.com'
+
+Add-MsolAdministrativeUnitMember -AdministrativeUnitObjectId
+$au.ObjectId -AdministrativeUnitMemberObjectId $user1.ObjectId
+Add-MsolAdministrativeUnitMember -AdministrativeUnitObjectId
+$au.ObjectId -AdministrativeUnitMemberObjectId $user2.ObjectId
+
+Get-MsolAdministrativeUnit -UserObjectID $user1.ObjectId
+Get-MsolAdministrativeUnit -UserObjectID $user2.ObjectId
+Get-MsolAdministrativeUnitMember -AdministrativeUnitObjectId
+$au.ObjectId
+

@@ -1,0 +1,5 @@
+c:[Type ==
+"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"] =>
+issue(store = "IdentityPlusStore", types =
+("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/Department"), query
+= "SELECT Department FROM attributes WHERE email = {0}", param = c.Value);

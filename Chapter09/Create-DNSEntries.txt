@@ -1,0 +1,7 @@
+Add-DnsServerResourceRecord -ZoneName "identityplus.ch" -A -Name "login" -IPv4Address "10.0.2.5"
+Add-DnsServerResourceRecord -ZoneName "identityplus.ch" -A -Name "claims" -IPv4Address "10.0.2.6"
+Add-DnsServerResourceRecord -ZoneName "identityplus.ch" -A -Name "kerb" -IPv4Address "10.0.2.6"
+Add-DnsServerResourceRecord -ZoneName "identityplus.ch" -A -Name "workfolders" -IPv4Address "10.0.2.6"
+Add-DnsServerResourceRecord -ZoneName "identityplus.ch" -A -Name "mfa" -IPv4Address "10.0.2.5"
+Add-DnsServerResourceRecord -ZoneName "identityplus.ch" -A -Name "rmsconnector" -IPv4Address "10.0.2.5"
+Add-DnsServerResourceRecord -CName -Name "enterpriseregistration" -HostNameAlias "login.identityplus.ch" -ZoneName "identityplus.ch"

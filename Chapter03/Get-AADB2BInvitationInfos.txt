@@ -1,0 +1,2 @@
+Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId
+Get-MsolGroup | fl DisplayName, ObjectId

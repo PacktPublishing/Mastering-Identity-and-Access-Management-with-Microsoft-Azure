@@ -1,0 +1,44 @@
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// This file contains several workarounds on inconsistent browser behaviors
+that administrators may customize.
+"use strict";
+//---- Start custom code ----
+function loadJquery(callback) {
+var jqueryScript = document.createElement('script');
+jqueryScript.setAttribute('src',
+'https://code.jquery.com/jquery-1.11.2.min.js');
+document.getElementsByTagName('head')[0].appendChild(jqueryScript);
+function loadWaiter() {
+setTimeout(function() {
+if (window.$) {
+callback();
+} else {
+loadWaiter();
+}
+}, 10);
+}
+loadWaiter();
+}
+// Include jquery
+loadJquery(function() {
+var pwdForgottonPublic = {
+text: "Reset password",
+link: "https://passwordreset.microsoftonline.com/"
+};
+var pwdForgottenLinkPublic = '<a href="' + pwdForgottonPublic.link + '">'
++ pwdForgottonPublic.text + '</a>';
+var pwdChange = {
+text: "Change password",
+link: "https://login.identityplus.ch/adfs/portal/updatepassword/"
+};
+var pwdChangeLink = '<br>' + '<a href="' + pwdChange.link + '">' +
+pwdChange.text + '</a>';
+$("#submissionArea").append('<div id="pwdForgottenArea">' +
+pwdChangeLink + '</div>');
+$("#submissionArea").append('<div id="pwdForgottenArea">' +
+pwdForgottenLinkPublic + '</div>');
+$("#content").css('display', 'block'); /* Initially non-displayed until
+all js-functions have been loaded */
+$("#footer").css('display', 'block');
+});
+//---- End custom code ----

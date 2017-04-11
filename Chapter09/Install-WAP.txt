@@ -1,0 +1,2 @@
+Install-WindowsFeature Web-Application-Proxy -IncludeManagementTools 
+$credentials = GetCredential Install-WebApplicationProxy -CertificateThumbprint <thumbprint of the cert> -FederationServiceName login.identityplus.ch -FederationServiceTrustCredential $credentials

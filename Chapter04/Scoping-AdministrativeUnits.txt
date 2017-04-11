@@ -1,0 +1,5 @@
+$role = Get-MsolRole -RoleName 'User Account Administrator'
+$user = Get-MsolUser -UserPrincipalName 'don.hall@domain.onmicrosoft.com'
+Add-MsolScopedRoleMember -RoleObjectId $role.ObjectId -AdministrativeUnitObjectId $au.ObjectId -RoleMemberObjectId $user.ObjectId
+
+

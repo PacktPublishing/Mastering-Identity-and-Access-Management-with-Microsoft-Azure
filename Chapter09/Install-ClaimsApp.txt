@@ -1,0 +1,6 @@
+Import-Module ServerManager
+
+Install-WindowsFeature NET-Framework-Core, AS-HTTP-Activation, NETFramework-45-Features, Web-Mgmt-Console, Web-Asp-Net, Web-Asp-Net45, WebBasic-Auth,Web-Client-Auth, Web-Digest-Auth, Web-Dir-Browsing, Web-DynCompression, Web-Http-Errors, Web-Http-Logging, Web-Http-Redirect,Web-HttpTracing, Web-ISAPI-Ext, Web-ISAPI-Filter, Web-Lgcy-Mgmt-Console, WebMetabase, Web-Mgmt-Console, Web-Mgmt-Service,Web-Net-Ext, Web-Net-Ext45,Web-Request-Monitor, Web-Server, Web-Stat-Compression, Web-Static-Content,Web-Windows-Auth,Web-WMI,Windows-Identity-Foundation
+
+Configure-SMRemoting.exe -enable
+Restart-Computer -Force

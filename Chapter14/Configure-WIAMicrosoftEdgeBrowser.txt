@@ -1,0 +1,4 @@
+Get-AdfsProperties | select -ExpandProperty WIASupportedUserAgents
+
+[System.Collections.ArrayList]$UserAgents = Get-AdfsProperties | select -ExpandProperty WIASupportedUserAgents $UserAgents.Add("Edge/12.10240")
+Set-ADFSProperties -WIASupportedUserAgents $UserAgents

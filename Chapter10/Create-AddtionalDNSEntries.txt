@@ -1,0 +1,2 @@
+Add-DnsServerResourceRecord -ZoneName "identityplus.ch" -A -Name "login2" -IPv4Address "10.0.2.7"
+Add-DnsServerResourceRecord -ZoneName "identityplus.ch" -A -Name "basic" -IPv4Address "10.0.2.6"

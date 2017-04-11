@@ -1,0 +1,16 @@
+$templateid = " 1ca2cd41-ba33-4681-85a9-a6b3d929a5cc" 
+[array]$r = New-AadrmRightsDefinition -EmailAddress marketing@idam.ch -Rights "VIEW", "EXPORT"
+$r += New-AadrmRightsDefinition -EmailAddress engineering@identityplus.ch -Rights "VIEW,DOCEDIT"
+$CurrentRightsDefinitions = [array]((get-aadrmtemplate -templateid
+$templateid).RightsDefinitions)
+$ResultingRightsDefinitions = $CurrentRightsDefinitions + $r
+Set-AadrmTemplateProperty -TemplateId $templateid -RightsDefinition $ResultingRightsDefinitions
+
+
+
+$names = @{}
+$names[1033] = "External Sharing - Confidential content"
+$descriptions = @{}
+$descriptions[1033] = " This content is confidential and only shared with specific partner organizations"
+$r1 = New-AadrmRightsDefinition -EmailAddress marketing@idam.ch -Rights "VIEW","EXPORT"
+Add-AadrmTemplate -Names $names -Descriptions $Descriptions -LicenseValidityDuration 5 -RightsDefinitions $r1 -ScopedIdentities marketing@idam.ch -Status Published
